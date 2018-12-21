@@ -1,0 +1,19 @@
+# auto detect user music location
+use Windows default music folder: true
+
+# auto scan sub dictionaries
+music folder:
+  - D:\音乐文件夹
+
+# set the default sound device name, if multi matched devices found, app will select the first
+# if fail to match device name, app use the default sound device
+default device: EDIFIER R19U
+
+# valid sound file time length, in minutes
+# if configure's format is wrong, default range is [1, 15]
+valid time length:
+  min: 1
+  max: 15
+
+# whether show player when play music
+show player: false
