@@ -1,9 +1,9 @@
 # auto detect user music location
-use Windows default music folder: true
+use Windows default music folder: false
 
 # auto scan sub dictionaries
 music folder:
-  - D:\音乐文件夹
+  - D:\音乐\孙燕姿 - 18CD
 
 # set the default sound device name, if multi matched devices found, app will select the first
 # if fail to match device name, app use the default sound device
