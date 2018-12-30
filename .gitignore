@@ -1,3 +1,5 @@
 .idea/
 main_test.py
 *.pyc
+music_web/static/
+music_web/templates/

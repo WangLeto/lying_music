@@ -10,9 +10,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "prebuild": "rmdir /s/q ..\\music_web\\templates && mkdir ..\\music_web\\templates",
+    "prebuild": "rmdir /s/q ..\\music_web\\static && mkdir ..\\music_web\\static && del /q ..\\music_web\\templates\\index.html",
     "build": "react-scripts build",
-    "postbuild": "echo world",
+    "postbuild": "xcopy /s .\\build ..\\music_web\\static && xcopy .\\build\\index.html ..\\music_web\\templates",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -25,5 +25,5 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "homepage": "/music_web/static/build"
+  "homepage": "/static"
 }
