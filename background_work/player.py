@@ -48,23 +48,9 @@ class SoundDevice:
 
     @staticmethod
     def __parse_devices_str(devices_str):
+        _list = devices_str.split('\1')
         devices = []
-        if devices_str:
-            length = len(devices_str)
-            temp = ''
-            everMeet = False
-            for i in range(length):
-                c = devices_str[i]
-                if c != '\\' or everMeet:
-                    if everMeet and c != '\\':
-                        everMeet = False
-                    temp += c
-                else:
-                    if i < length - 1 and devices_str[i + 1] == '\\':
-                        everMeet = True
-                        temp += c
-                    else:
-                        temp = temp.replace('\\\\', '\\')
-                        devices.append(temp)
-                        temp = ''
+        for item in _list:
+            if len(item) != 0:
+                devices.append(item)
         return devices

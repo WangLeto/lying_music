@@ -104,25 +104,13 @@ int work(int argc, int code, vector<wstring>& deviceStrArr = vector<wstring>())
     return hr;
 }
 
-// 将字符串中的 "\" 换成 "\\"，多个字符串使用 "\" 进行分割
-void escapeName(wstring& str) {
-    wstring from = L"\\";
-    wstring to = L"\\\\";
-    size_t start_pos = 0;
-    while ((start_pos = str.find(from, start_pos)) != wstring::npos) {
-        str.replace(start_pos, from.length(), to);
-        start_pos += to.length();
-    }
-}
-
 EXTERN_DLL_EXPORT const wchar_t* StrSoundDevices() {
     vector<wstring> devicesStrArr;
     HRESULT result = work(GET_DEVICES, NULL, devicesStrArr);
     wstring s;
     for (size_t i = 0; i < devicesStrArr.size(); i++) {
         wstring str = devicesStrArr[i];
-        escapeName(str);
-        s += wstring(str + L"\\");
+        s += wstring(str + L"\1");
     }
     size_t size = s.size() + 1;
     wchar_t* str = (wchar_t*)CoTaskMemAlloc(size * sizeof(wchar_t));
